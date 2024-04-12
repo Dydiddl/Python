@@ -14,12 +14,12 @@ for row in input_ws.iter_rows(values_only=True):
     output_ws.append(row)
 
 # 번호 매김(1행 해더)
-for row in range(2, output_ws.max_row) :
+for row in range(2, output_ws.max_row + 1) :
     if output_ws[f'B{row}'].value:
         output_ws[f'A{row}'] = row - 1
         
 # 주민등록번호로 나이 계산하기
-for row in range (2, output_ws.max_row):
+for row in range (2, output_ws.max_row + 1):
     jumin = output_ws[f'C{row}'].value
     if jumin:
         birth_year = int(jumin[:2])
@@ -46,6 +46,9 @@ for row in range(2, output_ws.max_row + 1):
     if not output_ws[f'C{row}'].value:
         output_ws[f'D{row}'] = '민증없음'
         
+new_ws = output_wb.create_sheet(title="정리시트")
+
+
 
 # 변경사항을 저장
 output_wb.save('일용직 지명원_add.xlsx')
