@@ -2,7 +2,7 @@ import openpyxl
 from datetime import datetime
 
 # A 파일 불러오기
-input_wb = openpyxl.load_workbook('일용직 지명원_NewVersion.xlsx')
+input_wb = openpyxl.load_workbook('정리필요 일용직 지명원.xlsx')
 input_ws = input_wb.active
 
 # B 파일 생성하기
@@ -51,4 +51,4 @@ new_ws = output_wb.create_sheet(title="정리시트")
 
 
 # 변경사항을 저장
-output_wb.save('일용직 지명원_add.xlsx')
+output_wb.save('정리필요 일용직 지명원_나이계산.xlsx')
