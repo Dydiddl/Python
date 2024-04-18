@@ -1,10 +1,10 @@
 import openpyxl
 
-wb = openpyxl.load_workbook('일용직 지명원.xlsx')
-ws = wb.active
+input_wb = openpyxl.load_workbook('정리필요 일용직 지명원.xlsx')
+input_ws = input_wb.active
 
-for row in range(2, ws.max_row + 1) :
-    if ws[f'B{row}'].value:
-        ws[f'A{row}'] = row - 1
+for row in range(2, input_ws.max_row + 1) :
+    if input_ws[f'B{row}'].value:
+        input_ws[f'A{row}'] = row - 1
 
-wb.save('일용직 지명원_newVersion.xlsx')
+input_wb.save('일용직 지명원_numbering.xlsx')
